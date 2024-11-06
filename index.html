@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daftar barbershop</title>
+  <title>Daftar barista</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -12,9 +12,9 @@
 </head>
 
 <body class="m-3">
-  <h1>Daftar Barbershop</h1>
+  <h1>Daftar Barista</h1>
 
-  <table class="table" id="daftar-barbershop">
+  <table class="table" id="daftar-barista">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -30,14 +30,14 @@
 
   <img src="loader.gif" style="width: 2em; display: block" id="loader">
 
-  <a href="form-produk.html">Tambah Barbershop</a>
+  <a href="form-produk.html">Tambah Barista</a>
 
   <script type="module">
-    import { ambilBarbershop, formatAngka, hapusBarbershop } from './main.js';
+    import { ambilDaftarBarista, formatAngka, hapusBarista } from './main.js';
 
     $(document).ready(async function() {
-      let elemenBarbershop = $("#daftar-barbershop > tbody");
-      let daftarBarbershop = await ambilBarbershop();   
+      let elemenBarista = $("#daftar-barista > tbody");
+      let daftarBarista = await ambilDaftarBarista();   
       let nomor = 1;
 
       daftarBarbershop.forEach((data) => {
@@ -63,7 +63,7 @@
           $('.tombol-hapus').click(async function() {
         $(this).attr('disabled', 'disabled');
         $('#' + $(this).attr('data')).show();
-        await hapusBarbershop($(this).attr('data'));
+        await hapusBarista($(this).attr('data'));
         location.reload();
       })
       $('.link-ubah').click(async function() {

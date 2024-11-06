@@ -25,8 +25,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarBarbershop() {
-  const refDokumen = collection(db, "barbershop");
+export async function ambilDaftarBarista() {
+  const refDokumen = collection(db, "barista");
   const kueri = query(refDokumen, orderBy("menu"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -36,7 +36,7 @@ export async function ambilDaftarBarbershop() {
       id: dok.id,
       menu: dok.data().menu,
       harga: dok.data().harga,
-      keluar: dok.data().keluar,
+      keluar: dok.data().keluar
     });
   });
   
@@ -47,33 +47,33 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahBarbershop(menu, harga, keluar) {
+export async function tambahBarista(menu, harga, keluar) {
   try {
     const dokRef = await addDoc(collection(db, 'barbershop'), {
       menu: menu,
       harga: harga,
       keluar: keluar 
     });
-    console.log('Berhasil menambah barbershop ' + dokRef.id);
+    console.log('Berhasil menambah barista ' + dokRef.id);
   } catch (e) {
-    console.log('Gagal menambah barbershop ' + e);
+    console.log('Gagal menambah barista ' + e);
   }
 }
 
-export async function hapusBarbershop(docId) {
-  await deleteDoc(doc(db, "barbershop", docId));
+export async function hapusBarista(docId) {
+  await deleteDoc(doc(db, "barista", docId));
 }  
 
-export async function ubahBarbershop(docId, nama, harga, stok) {
-  await updateDoc(doc(db, "barbershop", docId), {
+export async function ubahBarista(docId, nama, harga, stok) {
+  await updateDoc(doc(db, "barista", docId), {
     menu: menu,
     harga: harga,
     keluar: keluar 
   });
 }
 
-export async function ambilBarbershop(docId) {
-  const docRef = await doc(db, "barbershop", docId);
+export async function ambilBarista(docId) {
+  const docRef = await doc(db, "barista", docId);
   const docSnap = await getDoc(docRef);
 
   return await docSnap.data();
