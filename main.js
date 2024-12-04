@@ -36,7 +36,7 @@ export async function ambilDaftarBarista() {
       id: dok.id,
       menu: dok.data().menu,
       harga: dok.data().harga,
-      keluar: dok.data().keluar
+      orderan: dok.data().orderan
     });
   });
   
@@ -47,12 +47,12 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahBarista(menu, harga, keluar) {
+export async function tambahBarista(menu, harga, orderan) {
   try {
-    const dokRef = await addDoc(collection(db, 'barbershop'), {
+    const dokRef = await addDoc(collection(db, 'barista'), {
       menu: menu,
       harga: harga,
-      keluar: keluar 
+      orderan: orderan 
     });
     console.log('Berhasil menambah barista ' + dokRef.id);
   } catch (e) {
@@ -64,11 +64,11 @@ export async function hapusBarista(docId) {
   await deleteDoc(doc(db, "barista", docId));
 }  
 
-export async function ubahBarista(docId, nama, harga, stok) {
+export async function ubahBarista(docId, menu, harga, orderan) {
   await updateDoc(doc(db, "barista", docId), {
     menu: menu,
     harga: harga,
-    keluar: keluar 
+    orderan: orderan
   });
 }
 

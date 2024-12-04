@@ -22,8 +22,8 @@
       <input type="text" class="form-control" id="input-harga">
     </div>
     <div class="mb-3">
-      <label class="form-label">keluar</label>
-      <input type="text" class="form-control" id="input-keluar">
+      <label class="form-label">orderan</label>
+      <input type="text" class="form-control" id="input-orderan">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-ubah">ubah</button>
     <img src="loader.gif" style="width: 2em; display: none" id="loader">
@@ -37,21 +37,21 @@
     let tombolUbah = document.getElementById('tombol-ubah');
     let elemenNamaMenu = document.getElementById('input-nama');
     let elemenHarga = document.getElementById('input-harga');
-    let elemenKeluar = document.getElementById('input-keluar');
+    let elemenOrderan = document.getElementById('input-orderan');
     let loader = document.getElementById('loader');
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
-    const produk = await ambilProduk(docId);
+    const barista = await ambilBarista(docId);
 
-    elemenNamaMenu.value = barbershop.menu;
-    elemenHarga.value = barbershop.harga;
-    elemenKeluar.value = barbershop.keluar;
+    elemenNamaMenu.value = barista.menu;
+    elemenHarga.value = barista.harga;
+    elemenOrderan.value = barista.orderan;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahBarista(docId, elemenNamaMenu.value, elemenHarga.value, elemenKeluar.value);
+      await ubahBarista(docId, elemenNamaMenu.value, elemenHarga.value, elemenOrderan.value);
       window.location.href = 'index.html';
     });
   </script>

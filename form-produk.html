@@ -24,11 +24,11 @@
       <input type="text" class="form-control" id="input-harga">
     </div>
     <div class="mb-3">
-      <label class="form-label">Keluar</label>
-      <input type="text" class="form-control" id="input-keluar">
+      <label class="form-label">orderan</label>
+      <input type="text" class="form-control" id="input-orderan">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
-    <img src="loader.gif" style="width: 2em; display: none" id="loader">
+   <img src="loader.gif" style="width: 2em; //display: none" id="loader">
   </form>
 
   <a href="index.html">Lihat Daftar Barista</a>
@@ -39,15 +39,15 @@
     let tombolTambah = document.getElementById('tombol-tambah');
     let elemenNamaMenu= document.getElementById('input-menu');
     let elemenHarga = document.getElementById('input-harga');
-    let elemenKeluar = document.getElementById('input-keluar');
+    let elemenOrderan = document.getElementById('input-orderan');
     let loader = document.getElementById('loader');
     
     tombolTambah.addEventListener('click', async function (e) {
       e.preventDefault();
-      tombolTambah.setAttribute('disabled', 'disabled');
-      loader.style.display = "block";
+     // tombolTambah.setAttribute('disabled', 'disabled');
+//loader.style.display = "block";
       
-      await tambahBarista(elemenNamaMenu.value, elemenHarga.value, elemenKeluar.value);
+      await tambahBarista(elemenNamaMenu.value, elemenHarga.value, elemenOrderan.value);
       window.location.href = 'index.html';
     });
   </script>

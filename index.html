@@ -20,7 +20,7 @@
         <th scope="col">#</th>
         <th scope="col">Nama menu</th>
         <th scope="col">Harga</th>
-        <th scope="col">keluar</th>
+        <th scope="col">Orderan</th>
         <th scope="col">Tombol</th>
       </tr>
     </thead>
@@ -40,13 +40,13 @@
       let daftarBarista = await ambilDaftarBarista();   
       let nomor = 1;
 
-      daftarBarbershop.forEach((data) => {
-        elemenBarbershop.append(
+      daftarBarista.forEach((data) => {
+        elemenBarista.append(
           '<tr>' +
           '<th>' + nomor + '</th>' +
           '<td>' + data.menu + '</td>' +
           '<td>' + data.harga + '</td>' +
-          '<td>' + data.keluar + '</td>' + '<td class="stack-up">' +
+          '<td>' + data.orderan + '</td>' + '<td class="stack-up">' +
           ' <a href="#" class="me-2 link-ubah"  data="' +
           data.id +
           '">ubah</a> ' +
