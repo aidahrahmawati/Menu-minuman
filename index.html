@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100"
-
+<html lang="en" class="h-100">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daftar orderan</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar orderan</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body class="d-flex flex-column h-100">
- 
-  <h1>Daftar orderan</h1>
-
-  <table class="table" id="daftar-barista">
+  <table class="table  table-striped" id="barista">
     <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nama menu</th>
-        <th scope="col">Harga</th>
-        <th scope="col">Orderan</th>
-        <th scope="col">Tombol</th>
-      </tr>
+      <tr class="table-secondary">
+
+        <th scope=" col">#</th>
+        <th scope="col">menu</th>
+        <th scope="col">harga</th>
+        <th scope="col">orderan</th>
+         <th scope="col">tombol</th>
+
+
     </thead>
     <tbody>
     </tbody>
   </table>
 
+  <h1>Daftar orderan</h1>
+
+
+.
   <img src="loader.gif" style="width: 2em; display: block" id="loader">
 
   <a href="form-produk.html">Tambah Barista</a>
@@ -37,8 +41,8 @@
     import { ambilDaftarBarista, formatAngka, hapusBarista } from './main.js';
 
     $(document).ready(async function() {
-      let elemenBarista = $("#daftar-barista > tbody");
-      let daftarBarista = await ambilDaftarBarista();   
+      let elemenBarista = $("#barista > thead");
+      let daftarBarista = await ambilDaftarBarista();
       let nomor = 1;
 
       daftarBarista.forEach((data) => {
@@ -61,7 +65,7 @@
 
       $('#loader').hide();
 
-          $('.tombol-hapus').click(async function() {
+      $('.tombol-hapus').click(async function() {
         $(this).attr('disabled', 'disabled');
         $('#' + $(this).attr('data')).show();
         await hapusBarista($(this).attr('data'));
@@ -73,12 +77,12 @@
 
     });
   </script>
-  
+
   <footer class="py-3 bg-dark-subtle mt-auto">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
       <li class="nav-item"><a href="from-absensi.html" id="link-login-" class="nav-link px-2 text-body-secondary">tambah data</a></li>
-        <p class="text-center text-body-secondary">&copy; 2024 smk plus insan cemerlang</p>
+      <p class="text-center text-body-secondary">&copy; 2024 smk plus insan cemerlang</p>
     </ul>
     <p class="text-center text-body-secondary">&copy; </p>
   </footer>

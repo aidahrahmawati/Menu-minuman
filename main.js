@@ -36,7 +36,7 @@ export async function ambilDaftarBarista() {
       id: dok.id,
       menu: dok.data().menu,
       harga: dok.data().harga,
-      orderan: dok.data().orderan
+      orderan: dok.data().orderan,
     });
   });
   
